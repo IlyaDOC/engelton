@@ -1,0 +1,54 @@
+.swiper {
+    //opacity: 0;
+    //transition: opacity 0.1s ease;
+}
+
+.swiper.swiper-initialized {
+    //opacity: 1;
+}
+
+.swiper-pagination {
+}
+
+.swiper-pagination-bullet {
+    //--swiper-pagination-bullet-horizontal-gap: 0;
+
+    &-active {
+    }
+}
+
+.swiper-button {
+    //position: static;
+}
+
+// Custom button style
+.swiper-navigation.custom-button {
+    & .swiper-button {
+        //--swiper-navigation-size: 10px;
+    }
+}
+
+// WIDGET
+.widget {
+    //position: relative;
+
+    & .swiper-pagination {
+    }
+
+    & .swiper-pagination-bullet-active {
+    }
+
+    & .progress-bar {
+    }
+}
+
+// Product slider
+.product {
+    .swiper-pagination {
+    }
+
+    .swiper-pagination-bullet {
+        &-active {
+        }
+    }
+}

@@ -1,0 +1,4 @@
+node_modules/
+dist/
+src/styles/base/_normalize.scss
+src/styles/base/_reset.scss

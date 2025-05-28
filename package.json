@@ -1,0 +1,51 @@
+{
+    "name": "project",
+    "private": true,
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "npm run format && vite build",
+        "preview": "vite preview",
+        "build:tokens": "node build-tokens.js",
+        "format": "prettier --write .",
+        "lint": "eslint . --ext .js,.ts,.vue",
+        "lint:scss": "stylelint '**/*.{scss,vue}' --fix",
+        "prepare": "husky install && npm run add-husky-hooks",
+        "add-husky-hooks": "node setup-husky.cjs"
+    },
+    "browserslist": [
+        "cover 99.5%"
+    ],
+    "devDependencies": {
+        "@eslint/css": "^0.6.0",
+        "@eslint/js": "^9.24.0",
+        "@spiriit/vite-plugin-svg-spritemap": "^3.0.0",
+        "@vituum/vite-plugin-pug": "^1.1.0",
+        "autoprefixer": "^10.4.20",
+        "cssnano": "^7.0.1",
+        "eslint": "^9.24.0",
+        "eslint-config-prettier": "^10.1.2",
+        "eslint-plugin-prettier": "^5.2.6",
+        "globals": "^16.0.0",
+        "husky": "^9.1.7",
+        "jquery": "^3.7.1",
+        "jquery-pincode-autotab": "^2.2.3",
+        "lint-staged": "^15.5.1",
+        "postcss": "^8.4.38",
+        "postcss-pxtorem": "^6.1.0",
+        "postcss-sort-media-queries": "^5.2.0",
+        "postcss-url": "^10.1.3",
+        "sass": "^1.72.0",
+        "terser": "^5.31.1",
+        "vite": "6.2.6",
+        "vite-plugin-restart": "^0.4.2",
+        "vituum": "^1"
+    },
+    "dependencies": {
+        "@fancyapps/ui": "^5.0.36",
+        "inputmask": "^5.0.9",
+        "swiper": "^11.2.6",
+        "ymaps-touch-scroll": "^2.2.0"
+    }
+}

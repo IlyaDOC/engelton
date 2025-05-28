@@ -1,0 +1,22 @@
+extends ../layout/layout
+
+block title
+    - var title = 'Контакты'
+    - var page = 'page-contacts'
+
+block main
+    include ../components/_breadcrumbs
+    +breadcrumbs('Контакты')
+
+    section.map
+        .container
+            script.
+                let placemarks = [
+                    {
+                        coordinates: [55.5903660674912,37.44520349999996]
+                    }
+                ];
+                let centerPoint = [55.5903660674912,37.44520349999996];
+                let zoomValue = 17;
+            .map__wrapper
+                #map

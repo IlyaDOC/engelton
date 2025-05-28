@@ -1,0 +1,29 @@
+{
+    "extends": ["stylelint-config-standard-scss"],
+    "rules": {
+        "max-nesting-depth": [
+            2,
+            {
+                "ignore": ["blockless-at-rules"],
+                "ignoreAtRules": [
+                    "media",
+                    "include",
+                    "mixin",
+                    "if",
+                    "else",
+                    "for",
+                    "each",
+                    "while",
+                    "function",
+                    "return"
+                ],
+                "severity": "warning"
+            }
+        ],
+        "selector-max-id": [0, { "severity": "warning" }],
+        "selector-class-pattern": [null, { "severity": "warning" }],
+        "scss/at-mixin-pattern": [null, { "severity": "warning" }],
+        "scss/dollar-variable-pattern": [null, { "severity": "warning" }],
+        "keyframes-name-pattern": [null, { "severity": "warning" }]
+    }
+}
