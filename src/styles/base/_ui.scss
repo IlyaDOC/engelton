@@ -14,12 +14,11 @@ body {
     min-width: 360px;
     min-height: 100%;
     max-width: 100%;
-    font-family: "Montserrat", serif;
+    font-family: "Gotham Pro", sans-serif;
     font-optical-sizing: auto;
-    font-size: 14px;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.5;
+    font-size: 16px;
 
     &.overflow-hidden {
         overflow: hidden;
@@ -149,6 +148,71 @@ input[type="number"] {
 /// BUTTONS
 /////////////////////
 
+.btn {
+    @include flexAlignCenter;
+    width: fit-content;
+    @include uppercase-14;
+    border-radius: 2px;
+    transition: $transition;
+    cursor: pointer;
+    border: 3px solid transparent;
+
+    &.btn--blur {
+        background: $white-10;
+        backdrop-filter: blur(5px);
+        color: $white;
+
+        &:hover {
+            background: $white;
+            color: $black;
+        }
+
+        &:active {
+            background: $white-10;
+            backdrop-filter: blur(5px);
+            color: $white;
+            border: 3px solid $white-20;
+        }
+
+        &.disabled {
+            cursor: not-allowed;
+            background: $brown-disabled;
+            border: 3px solid transparent;
+            color: $white-20;
+        }
+    }
+}
+
+.nav-buttons {
+    @include flexAlignCenter;
+    gap: 8px;
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .nav-button {
+        @include flexAlignCenter;
+        width: 48px;
+        height: 48px;
+        &.nav-button-prev {
+        }
+        &.nav-button-next {
+        }
+    }
+
+    &.nav-buttons--transparent {
+        background: $white-10;
+
+        .nav-button {
+            svg {
+                fill: $white;
+            }
+        }
+    }
+}
+
 /////////////////////
 /// LINKS
 /////////////////////
@@ -164,3 +228,15 @@ input[type="number"] {
 /////////////////////
 /// TYPOGRAPHY
 /////////////////////
+
+h1 {
+    font: $font-h1-mini;
+
+    @include breakpoint(md) {
+        font: $font-h1-medium;
+    }
+
+    @include breakpoint(lg) {
+        font: $font-h1;
+    }
+}

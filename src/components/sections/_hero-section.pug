@@ -1,0 +1,19 @@
+section.main-hero
+    .container
+        .main-hero__inner
+            h1 Сантехника Engleton
+            .main-hero__description Ваша инвестиция в комфорт <br> и качество жизни
+            a(href="javascript:void:(0)").btn.btn--blur Смотреть каталог
+    .main-hero__slider
+        .swiper
+            .swiper-wrapper
+                - var n = 5;
+                while n > 0
+                    .swiper-slide
+                        .main-hero__slider-video
+                            video(src="assets/images/video-compressed.mp4" autoplay loop muted preload)
+                    - n--;
+
+        .line-s
+        .swiper-pagination
+

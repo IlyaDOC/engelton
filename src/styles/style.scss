@@ -2,6 +2,7 @@
 @use "base/variables";
 @use "base/normalize";
 @use "base/reset";
+@use "base/fonts";
 @use "base/container";
 @use "base/animation";
 @use "base/ui";
@@ -13,5 +14,7 @@
 @use "components/popups";
 @use "components/pagination";
 @use "components/map";
+
+@use "components/sections/hero-section";
 
 @use "pages/index";

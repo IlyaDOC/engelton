@@ -1,11 +1,15 @@
 @use "mixins" as *;
 
 :root {
-    --container: 10px;
-    --max-width: calc(1400px + (var(--container) * 2));
+    --container: 16px;
+    --max-width: 1400px;
 
     @include breakpoint(md) {
         --container: 20px;
+    }
+
+    @include breakpoint(lg) {
+        --container: 30px;
     }
 }
 

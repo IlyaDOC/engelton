@@ -1,4 +1,116 @@
 @use "mixins" as *;
 
 :root {
+    /* === Цвета === */
+    --color-black: #2d2b2c;
+    --color-black-50: #2d2b2c7f;
+    --color-black-30: #2d2b2c4d;
+    --color-black-20: #2d2b2c33;
+    --color-black-10: #2d2b2c1a;
+    --color-gray-text: #686466;
+    --color-light: #f3f3f5;
+    --color-white: #ffffff;
+    --color-white-70: #ffffffb3;
+    --color-white-50: #ffffff80;
+    --color-white-20: #ffffff33;
+    --color-white-10: #ffffff1a;
+    --color-brown-accent: #af9253;
+    --color-brown-accent-hover: #8f7742;
+    --color-brown-light: #d1ab53;
+    --color-brown-disabled: #b6a581;
+    --color-brown-subdied: #af92534c;
+    --color-green: #53af92;
+    --color-red: #c9557a;
+    --color-red-hover: #b2395f;
+    --color-violet: #6613a5;
+    --transition: all 0.3s ease-in-out;
+
+    /* === Типография === */
+    --font-main: "Gotham Pro", sans-serif;
+
+    --font-h1: 61px/1 var(--font-main);
+    --font-h1-medium: 48px/1 var(--font-main);
+    --font-h1-mini: 36px/1 var(--font-main);
+
+    --font-h2: 39px/1 var(--font-main);
+    --font-h2-medium: 32px/1 var(--font-main);
+    --font-h2-mini: 26px/1 var(--font-main);
+
+    --font-h3: 32px/1.1 var(--font-main);
+    --font-h3-medium: 26px/1.1 var(--font-main);
+    --font-h3-mini: 20px/1.1 var(--font-main);
+
+    --font-h4: 25px/1.1 var(--font-main);
+    --font-h4-medium: 22px/1.1 var(--font-main);
+    --font-h4-mini: 18px/1.1 var(--font-main);
+
+    --font-h5: 20px/1.1 var(--font-main);
+
+    --font-body-subtitle: 20px/1.2 var(--font-main);
+    --font-body-subtitle-mini: 16px/1.2 var(--font-main);
+
+    --font-body-16: 16px/1.4 var(--font-main);
+    --font-body-14: 14px/1.4 var(--font-main);
+    --font-body-12: 12px/1.4 var(--font-main);
+
+    --body-description: 12px/1.4 var(--font-main);
 }
+
+@mixin uppercase-16 {
+    font: var(--font-body-16);
+    letter-spacing: 0.64px;
+    text-transform: uppercase;
+}
+@mixin uppercase-14 {
+    font: var(--font-body-14);
+    letter-spacing: 0.56px;
+    text-transform: uppercase;
+}
+@mixin uppercase-12 {
+    font: var(--font-body-12);
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+}
+
+$black: var(--color-black);
+$black-50: var(--color-black-50);
+$black-30: var(--color-black-30);
+$black-20: var(--color-black-20);
+$black-10: var(--color-black-10);
+$gray-text: var(--color-gray-text);
+$light: var(--color-light);
+$white: var(--color-white);
+$white-70: var(--color-white-70);
+$white-50: var(--color-white-50);
+$white-20: var(--color-white-20);
+$white-10: var(--color-white-10);
+$brown-accent: var(--color-brown-accent);
+$brown-accent-hover: var(--color-brown-accent-hover);
+$brown-light: var(--color-brown-light);
+$brown-disabled: var(--color-brown-disabled);
+$brown-subdied: var(--color-brown-subdied);
+$green: var(--color-green);
+$red: var(--color-red);
+$red-hover: var(--color-red-hover);
+$violet: var(--color-violet);
+$transition: var(--transition);
+
+$font-h1: var(--font-h1);
+$font-h1-medium: var(--font-h1-medium);
+$font-h1-mini: var(--font-h1-mini);
+$font-h2: var(--font-h2);
+$font-h2-medium: var(--font-h2-medium);
+$font-h2-mini: var(--font-h2-mini);
+$font-h3: var(--font-h3);
+$font-h3-medium: var(--font-h3-medium);
+$font-h3-mini: var(--font-h3-mini);
+$font-h4: var(--font-h4);
+$font-h4-medium: var(--font-h4-medium);
+$font-h4-mini: var(--font-h4-mini);
+$font-h5: var(--font-h5);
+$font-body-subtitle: var(--font-body-subtitle);
+$font-body-subtitle-mini: var(--font-body-subtitle-mini);
+$font-body-16: var(--font-body-16);
+$font-body-14: var(--font-body-14);
+$font-body-12: var(--font-body-12);
+$body-description: var(--body-description);
