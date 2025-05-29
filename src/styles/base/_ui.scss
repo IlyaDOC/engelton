@@ -190,24 +190,34 @@ input[type="number"] {
     svg {
         width: 24px;
         height: 24px;
+        transition: $transition;
     }
 
     .nav-button {
-        @include flexAlignCenter;
+        @include flexCenterCenter;
         width: 48px;
         height: 48px;
+        transition: $transition;
+
         &.nav-button-prev {
         }
+
         &.nav-button-next {
         }
     }
 
     &.nav-buttons--transparent {
-        background: $white-10;
-
         .nav-button {
+            background: $white-10;
             svg {
                 fill: $white;
+            }
+
+            &:hover {
+                background: $white;
+                svg {
+                    fill: $black;
+                }
             }
         }
     }

@@ -1,0 +1,7 @@
+mixin navButtons(type)
+
+    .nav-buttons(class=`nav-buttons--${type}`)
+        button(type="button").nav-button.nav-button-prev
+            +svg("icon_chevron-left")
+        button(type="button").nav-button.nav-button-next
+            +svg("icon_chevron-right")

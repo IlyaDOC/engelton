@@ -1,2 +1,206 @@
 @use "../base/mixins" as *;
 @use "../base/variables" as *;
+
+.header {
+    position: sticky;
+    left: 0;
+    top: 0;
+    background: transparent;
+    z-index: 100;
+    border-bottom: 1px solid $white-20;
+    padding: var(--container);
+    display: grid;
+    grid-template-columns: repeat(2, fit-content(100%)) 1fr;
+    align-items: center;
+
+    @include breakpoint(md) {
+        border-bottom: none;
+    }
+
+    @include breakpoint(lg) {
+        grid-template-columns: repeat(3, fit-content(100%)) 1fr repeat(2, fit-content(100%));
+    }
+
+    &__inner {
+    }
+}
+
+.header__menu {
+    &-trigger {
+        margin-right: 8px;
+        border-radius: 4px;
+        border: 1px solid $white-20;
+        width: 36px;
+        height: 36px;
+        @include flexCenterCenter;
+
+        @include breakpoint(md) {
+            margin-right: 32px;
+        }
+
+        @include breakpoint(lg) {
+            border: none;
+
+            &:hover {
+                .icon__top {
+                    background: $white;
+                }
+                .icon__bottom {
+                    background: $white;
+                    width: 36px;
+                }
+            }
+        }
+    }
+
+    &-icon {
+        @include flexColumn;
+        gap: 6px;
+
+        .icon__top {
+            width: 20px;
+            height: 1px;
+            background: $white;
+            transition: $transition;
+
+            @include breakpoint(lg) {
+                width: 36px;
+                height: 2px;
+                background: $white-50;
+            }
+        }
+
+        .icon__bottom {
+            width: 13px;
+            height: 1px;
+            background: $white;
+            transition: $transition;
+
+            @include breakpoint(lg) {
+                width: 24px;
+                height: 2px;
+                background: $white-50;
+            }
+        }
+    }
+
+    &-text {
+        display: none;
+    }
+
+    &-nav {
+        display: none;
+    }
+}
+
+.header__catalog {
+    position: fixed;
+    transform: translateY(-9999px);
+
+    @include breakpoint(lg) {
+        position: static;
+        transform: none;
+    }
+
+    &-trigger {
+        @include breakpoint(lg) {
+            height: 48px;
+            background: $white;
+            padding: 14px 16px;
+            border-radius: 2px;
+            @include flexAlignCenter;
+            gap: 8px;
+            cursor: pointer;
+            margin-right: 24px;
+        }
+
+        svg {
+            @include breakpoint(lg) {
+                width: 24px;
+                height: 24px;
+                fill: $black;
+            }
+        }
+    }
+
+    &-title {
+        @include uppercase-14;
+        color: $black;
+    }
+}
+
+.header__logo {
+    svg {
+        width: 140px;
+        height: 30px;
+        fill: $white;
+
+        @include breakpoint(md) {
+            width: 205px;
+            height: 46px;
+        }
+    }
+}
+
+.header__buyer {
+    position: fixed;
+    transform: translateY(-9999px);
+
+    @include breakpoint(lg) {
+        position: static;
+        transform: none;
+        cursor: pointer;
+        justify-self: flex-end;
+    }
+
+    &-trigger {
+        @include breakpoint(lg) {
+            @include flexAlignCenter;
+            gap: 12px;
+        }
+
+        svg {
+            @include breakpoint(lg) {
+                width: 24px;
+                height: 24px;
+                fill: $white;
+            }
+        }
+    }
+
+    &-title {
+        @include breakpoint(lg) {
+            @include uppercase-16;
+            color: $white;
+        }
+    }
+}
+
+.header__contacts {
+    display: none;
+
+    @include breakpoint(lg) {
+        display: grid;
+    }
+}
+
+.header__additional {
+    @include flexAlignCenter;
+    gap: 4px;
+    justify-self: flex-end;
+
+    &-item {
+        padding: 6px;
+
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: $white;
+
+            @include breakpoint(md) {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}

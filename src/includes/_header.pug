@@ -1,6 +1,58 @@
 block header
 
     header#header.header
-        .container
-            .header__inner
-                p Header is working!
+        .header__menu
+            button(type="button").header__menu-trigger
+                .header__menu-icon
+                    .icon__top
+                    .icon__bottom
+                .header__menu-text Menu
+
+            .header__menu-nav
+                nav
+                    ul
+                        li
+                            a
+
+        .header__catalog
+            .header__catalog-trigger
+                .header__catalog-title Каталог
+                +svg("icon_chevron-down")
+
+
+        a(href="/").header__logo
+            +svg("icon_logo")
+
+        .header__buyer
+            .header__buyer-trigger
+                .header__buyer-title Покупателю
+                +svg("icon_chevron-down")
+
+
+        .header__contacts
+            a(href="mailto:info@domenname.ru").header__mail info@domenname.ru
+            a(href="tel:74951288876").header__phone +7 (495) 128-88-76
+            .header__whatsapp
+                noindex
+                    a(href="javascript:void(0)")
+                        +svg("icon_whatsapp")
+            .header__telegram
+                noindex
+                    a(href="javascript:void(0)")
+                        +svg("icon_telegram")
+
+        .header__additional
+            button(type="button").header__search.header__additional-item
+                +svg("icon_search")
+            a(href="javascript:void(0)").header__user.header__additional-item
+                +svg("icon_user")
+            a(href="javascript:void(0)").header__favourite.header__additional-item
+                +svg("icon_heart")
+            a(href="javascript:void(0)").header__user.header__additional-item
+                +svg("icon_cart")
+
+
+
+
+
+

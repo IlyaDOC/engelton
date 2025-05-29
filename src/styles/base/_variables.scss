@@ -28,46 +28,49 @@
     /* === Типография === */
     --font-main: "Gotham Pro", sans-serif;
 
-    --font-h1: 61px/1 var(--font-main);
-    --font-h1-medium: 48px/1 var(--font-main);
-    --font-h1-mini: 36px/1 var(--font-main);
+    --font-h1: 500 61px/1 var(--font-main);
+    --font-h1-medium: 500 48px/1 var(--font-main);
+    --font-h1-mini: 500 36px/1 var(--font-main);
 
-    --font-h2: 39px/1 var(--font-main);
-    --font-h2-medium: 32px/1 var(--font-main);
-    --font-h2-mini: 26px/1 var(--font-main);
+    --font-h2: 500 39px/1 var(--font-main);
+    --font-h2-medium: 500 32px/1 var(--font-main);
+    --font-h2-mini: 500 26px/1 var(--font-main);
 
-    --font-h3: 32px/1.1 var(--font-main);
-    --font-h3-medium: 26px/1.1 var(--font-main);
-    --font-h3-mini: 20px/1.1 var(--font-main);
+    --font-h3: 500 32px/1.1 var(--font-main);
+    --font-h3-medium: 500 26px/1.1 var(--font-main);
+    --font-h3-mini: 500 20px/1.1 var(--font-main);
 
-    --font-h4: 25px/1.1 var(--font-main);
-    --font-h4-medium: 22px/1.1 var(--font-main);
-    --font-h4-mini: 18px/1.1 var(--font-main);
+    --font-h4: 500 25px/1.1 var(--font-main);
+    --font-h4-medium: 500 22px/1.1 var(--font-main);
+    --font-h4-mini: 500 18px/1.1 var(--font-main);
 
-    --font-h5: 20px/1.1 var(--font-main);
+    --font-h5: 500 20px/1.1 var(--font-main);
 
-    --font-body-subtitle: 20px/1.2 var(--font-main);
-    --font-body-subtitle-mini: 16px/1.2 var(--font-main);
+    --font-body-subtitle: 400 20px/1.2 var(--font-main);
+    --font-body-subtitle-mini: 400 16px/1.2 var(--font-main);
 
-    --font-body-16: 16px/1.4 var(--font-main);
-    --font-body-14: 14px/1.4 var(--font-main);
-    --font-body-12: 12px/1.4 var(--font-main);
+    --font-body-16: 400 16px/1.4 var(--font-main);
+    --font-body-14: 400 14px/1.4 var(--font-main);
+    --font-body-12: 400 12px/1.4 var(--font-main);
 
-    --body-description: 12px/1.4 var(--font-main);
+    --body-description: 400 12px/1.4 var(--font-main);
 }
 
 @mixin uppercase-16 {
     font: var(--font-body-16);
+    font-weight: 500;
     letter-spacing: 0.64px;
     text-transform: uppercase;
 }
 @mixin uppercase-14 {
     font: var(--font-body-14);
+    font-weight: 500;
     letter-spacing: 0.56px;
     text-transform: uppercase;
 }
 @mixin uppercase-12 {
     font: var(--font-body-12);
+    font-weight: 500;
     letter-spacing: 0.48px;
     text-transform: uppercase;
 }

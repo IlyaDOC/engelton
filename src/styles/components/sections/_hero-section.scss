@@ -3,9 +3,21 @@
 @use "@styles/base/container" as *;
 
 .main-hero {
+    --header-height: 69px;
+
     height: 698px;
     position: relative;
     color: $white;
+    margin-top: calc(var(--header-height) * -1);
+
+    @include breakpoint(md) {
+        height: 770px;
+        --header-height: 92px;
+    }
+
+    @include breakpoint(1400px) {
+        height: calc(100vh - var(--header-height));
+    }
 
     &__inner {
         padding-top: 241px;
@@ -13,15 +25,315 @@
         position: relative;
         z-index: 1;
 
+        @include breakpoint(md) {
+            padding-top: 323px;
+        }
+
+        @include breakpoint(1200px) {
+            padding-top: 323px;
+        }
+
+        @include breakpoint(1400px) {
+            padding-top: calc(100vh + var(--header-height) - 344px - 223px);
+        }
+
         .main-hero__description {
             font: $font-body-subtitle;
             margin-top: 32px;
+
+            @include breakpoint(md) {
+                margin-top: 64px;
+            }
         }
 
         .btn {
             padding: 21px 32px;
             margin-top: 40px;
             pointer-events: auto;
+
+            @include breakpoint(md) {
+                margin-top: 48px;
+            }
+        }
+    }
+
+    .line {
+        background: $white;
+        opacity: 0.5;
+        z-index: 0;
+        height: 1px;
+        position: absolute;
+    }
+
+    .line-s {
+        width: 100%;
+        left: 0;
+        bottom: 88px;
+
+        @include breakpoint(md) {
+            display: none;
+        }
+    }
+
+    .line-horizontal-left {
+        display: none;
+        width: 452px;
+        bottom: 299px;
+        left: 0;
+
+        @include breakpoint(md) {
+            display: block;
+        }
+
+        @include breakpoint(lg) {
+            width: 390px;
+        }
+
+        @include breakpoint(1400px) {
+            right: calc(((100vw - 1400px) / 2) + 951px);
+            left: unset;
+            width: 100%;
+            bottom: 411px;
+        }
+    }
+
+    .line-horizontal-right {
+        overflow: hidden;
+        display: none;
+        width: 100%;
+        bottom: 299px;
+        left: 510px;
+
+        @include breakpoint(md) {
+            display: block;
+        }
+
+        @include breakpoint(lg) {
+            left: 453px;
+        }
+
+        @include breakpoint(1400px) {
+            left: calc(((100vw - 1400px) / 2) + 508px);
+            bottom: 411px;
+        }
+    }
+
+    .line-vertical {
+        display: none;
+        left: 480px;
+        bottom: 0;
+        width: 1px;
+        height: 268px;
+
+        @include breakpoint(md) {
+            display: block;
+        }
+
+        @include breakpoint(lg) {
+            left: 422px;
+        }
+
+        @include breakpoint(1400px) {
+            left: calc(((100vw - 1400px) / 2) + 472px);
+            height: 380px;
+        }
+    }
+
+    .line-slash {
+        display: none;
+        width: 393px;
+        height: 1px;
+        left: 181px;
+        bottom: 0;
+        transform: rotate(-45deg);
+        transform-origin: left center;
+
+        @include breakpoint(md) {
+            display: block;
+        }
+
+        @include breakpoint(lg) {
+            left: 124px;
+        }
+
+        @include breakpoint(1400px) {
+            left: calc(((100vw - 1400px) / 2) + 64px);
+            width: 548px;
+        }
+    }
+
+    .round-pulsed {
+        display: none;
+
+        @include breakpoint(md) {
+            display: block;
+            position: absolute;
+            width: 56px;
+            height: 56px;
+            left: 453px;
+            bottom: 271px;
+            transform-origin: center center;
+            @include flexCenterCenter;
+        }
+
+        @include breakpoint(lg) {
+            left: 394px;
+        }
+
+        @include breakpoint(1400px) {
+            left: calc(((100vw - 1400px) / 2) + 445px);
+            bottom: 384px;
+        }
+
+        &__inner {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: $white;
+            animation: pulseInner 5s infinite;
+            z-index: 1;
+        }
+
+        &__outer {
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: $white-10;
+            backdrop-filter: blur(2px);
+            z-index: 0;
+            opacity: 1;
+            animation: pulseOuter 5s infinite;
+        }
+    }
+    @keyframes pulseInner {
+        0% {
+            scale: 1;
+        }
+
+        70% {
+            scale: 1.5;
+        }
+
+        80% {
+            scale: 1;
+        }
+
+        100% {
+            scale: 1;
+        }
+    }
+
+    @keyframes pulseOuter {
+        0% {
+            scale: 1;
+            opacity: 1;
+        }
+
+        70% {
+            scale: 1;
+            opacity: 1;
+        }
+
+        80% {
+            scale: 1.5;
+            opacity: 0;
+        }
+
+        81% {
+            scale: 0;
+            opacity: 0;
+        }
+
+        100% {
+            scale: 1;
+            opacity: 1;
+        }
+    }
+
+    .swiper-pagination {
+        @include flexCenterCenter;
+        left: var(--container);
+        bottom: 32px;
+        width: fit-content;
+
+        @include breakpoint(md) {
+            left: unset;
+            right: 152px;
+            bottom: 43px;
+        }
+
+        @include breakpoint(lg) {
+            right: 179px;
+        }
+
+        &-bullet {
+            position: relative;
+            @include flexCenterCenter;
+            width: auto;
+            height: auto;
+            cursor: pointer;
+            transition: 0.3s;
+            background: transparent;
+            opacity: 1;
+            margin: 0 4px;
+
+            .progress {
+                transform: rotate(-90deg);
+
+                .circle-origin {
+                    fill: transparent;
+                    stroke: $white;
+                    stroke-width: 2;
+                    stroke-linecap: round;
+                    stroke-dasharray: 62.83px;
+                    stroke-dashoffset: 62.83px;
+                    opacity: 0;
+                    visibility: hidden;
+                    pointer-events: none;
+                }
+
+                .circle-origin-transparent {
+                    stroke: $white;
+                    stroke-width: 2;
+                    fill: transparent;
+                    opacity: 0;
+                    visibility: hidden;
+                    pointer-events: none;
+                }
+
+                .dot {
+                    fill: $white;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &-bullet-active {
+            .progress {
+                .circle-origin {
+                    opacity: 1;
+                    visibility: visible;
+                    pointer-events: auto;
+                    animation: progress 10.5s;
+                }
+
+                .circle-origin-transparent {
+                    opacity: 0.3;
+                    visibility: visible;
+                    pointer-events: auto;
+                }
+            }
+        }
+    }
+
+    @keyframes progress {
+        0% {
+            stroke-dashoffset: 62.83px;
+        }
+
+        100% {
+            stroke-dashoffset: 0;
         }
     }
 }
@@ -37,21 +349,23 @@
     .swiper {
         width: 100%;
         height: 100%;
+
         .swiper-wrapper {
             .swiper-slide {
             }
         }
     }
 
-    .line-s {
+    .nav-buttons {
         position: absolute;
-        background: $white;
-        opacity: 0.5;
-        width: 100%;
-        height: 1px;
-        left: 0;
-        bottom: 88px;
+        bottom: 20px;
+        right: var(--container);
         z-index: 1;
+
+        @include breakpoint(md) {
+            right: 32px;
+            bottom: 32px;
+        }
     }
 }
 

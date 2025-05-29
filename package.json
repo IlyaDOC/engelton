@@ -14,6 +14,12 @@
         "prepare": "husky install && npm run add-husky-hooks",
         "add-husky-hooks": "node setup-husky.cjs"
     },
+    "lint-staged": {
+        "*.{scss,js,ts,vue}": [
+            "prettier --write",
+            "eslint --fix"
+        ]
+    },
     "browserslist": [
         "cover 99.5%"
     ],
