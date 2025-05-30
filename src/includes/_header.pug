@@ -28,6 +28,18 @@ block header
                 .header__buyer-title Покупателю
                 +svg("icon_chevron-down")
 
+            nav.header__buyer-items
+                ul
+                    li.header__buyer-item
+                        a(href="javascript:void(0)") Доставка
+                    li.header__buyer-item
+                        a(href="javascript:void(0)") Оплата
+                    li.header__buyer-item
+                        a(href="javascript:void(0)") Возврат
+                    li.header__buyer-item
+                        a(href="javascript:void(0)") Партнерство
+
+
 
         .header__contacts
             a(href="mailto:info@domenname.ru").header__mail info@domenname.ru
@@ -39,10 +51,10 @@ block header
             .header__telegram
                 noindex
                     a(href="javascript:void(0)")
-                        +svg("icon_telegram")
+                        include ../../public/assets/images/icon_telegram.svg
 
         .header__additional
-            button(type="button").header__search.header__additional-item
+            button(type="button").header__search.header__additional-item#searchShow
                 +svg("icon_search")
             a(href="javascript:void(0)").header__user.header__additional-item
                 +svg("icon_user")

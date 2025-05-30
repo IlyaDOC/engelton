@@ -31,4 +31,13 @@ export default function initSlider() {
             nextEl: ".main-hero .nav-button-next"
         }
     });
+
+    const productCardImageSlider = new Swiper(".product-card .swiper", {
+        modules: [Pagination],
+        slidesPerView: 1,
+        pagination: {
+            el: ".product-card .swiper-pagination",
+            clickable: true
+        }
+    });
 }

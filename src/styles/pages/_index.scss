@@ -1,3 +1,13 @@
-@use "../base/mixins" as *;
-@use "../base/variables" as *;
-@use "../base/container" as *;
+@use "@styles/base/mixins" as *;
+@use "@styles/base/variables" as *;
+@use "@styles/base/container" as *;
+
+@use "@styles/components/sections/hero-section";
+
+.main-popular {
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}

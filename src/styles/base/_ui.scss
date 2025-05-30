@@ -144,12 +144,24 @@ input[type="number"] {
     -moz-appearance: textfield; /* Убирает стандартный стиль в Firefox */
 }
 
+.input {
+    border: 1px solid $black-20;
+    background: $white;
+    padding: 12px;
+    font: $font-body-16;
+    width: 100%;
+
+    &::placeholder {
+        color: $gray-text;
+    }
+}
+
 /////////////////////
 /// BUTTONS
 /////////////////////
 
 .btn {
-    @include flexAlignCenter;
+    @include flexCenterCenter;
     width: fit-content;
     @include uppercase-14;
     border-radius: 2px;
@@ -172,6 +184,27 @@ input[type="number"] {
             backdrop-filter: blur(5px);
             color: $white;
             border: 3px solid $white-20;
+        }
+
+        &.disabled {
+            cursor: not-allowed;
+            background: $white-10;
+            border: 3px solid transparent;
+            color: $white-20;
+        }
+    }
+
+    &.btn--brown {
+        background: $brown-accent;
+        color: $white;
+
+        &:hover {
+            background: $brown-accent-hover;
+        }
+
+        &:active {
+            background: $brown-accent;
+            border: 3px solid $brown-light;
         }
 
         &.disabled {
@@ -209,14 +242,36 @@ input[type="number"] {
     &.nav-buttons--transparent {
         .nav-button {
             background: $white-10;
+
             svg {
                 fill: $white;
             }
 
             &:hover {
                 background: $white;
+
                 svg {
                     fill: $black;
+                }
+            }
+        }
+    }
+
+    &.nav-buttons--light {
+        .nav-button {
+            background: $light;
+            border: 1px solid transparent;
+
+            svg {
+                fill: $brown-accent;
+            }
+
+            &:hover {
+                background: $light;
+                border: 1px solid $brown-accent;
+
+                svg {
+                    fill: $brown-accent;
                 }
             }
         }
@@ -235,6 +290,22 @@ input[type="number"] {
 /// OTHERS
 /////////////////////
 
+section + section {
+    margin-top: 48px;
+
+    @include breakpoint(md) {
+        margin-top: 64px;
+    }
+
+    @include breakpoint(lg) {
+        margin-top: 96px;
+    }
+
+    @include breakpoint(xl) {
+        margin-top: 128px;
+    }
+}
+
 /////////////////////
 /// TYPOGRAPHY
 /////////////////////
@@ -248,5 +319,55 @@ h1 {
 
     @include breakpoint(lg) {
         font: $font-h1;
+    }
+}
+
+h2,
+.section-title {
+    font: $font-h2-mini;
+
+    @include breakpoint(md) {
+        font: $font-h2-medium;
+    }
+
+    @include breakpoint(lg) {
+        font: $font-h2;
+    }
+}
+
+.section-title {
+    margin-bottom: 32px;
+
+    @include breakpoint(md) {
+        margin-bottom: 40px;
+    }
+
+    @include breakpoint(lg) {
+        margin-bottom: 48px;
+    }
+
+    @include breakpoint(xl) {
+        margin-bottom: 64px;
+    }
+}
+
+.section-top {
+    @include flexCenterBetween;
+    margin-bottom: 32px;
+
+    @include breakpoint(md) {
+        margin-bottom: 40px;
+    }
+
+    @include breakpoint(lg) {
+        margin-bottom: 48px;
+    }
+
+    @include breakpoint(xl) {
+        margin-bottom: 64px;
+    }
+
+    .section-title {
+        margin-bottom: 0;
     }
 }

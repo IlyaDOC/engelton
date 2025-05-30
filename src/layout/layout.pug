@@ -31,6 +31,8 @@ html(lang="ru")
         include ../includes/_favicon
 
     include ../includes/_mixins
+    include ../components/_breadcrumbs
+    include ../components/_nav-buttons
 
     body(class= page ? page : '')
         #overlay
@@ -42,6 +44,11 @@ html(lang="ru")
         // Sidebar::Start
 
         // Sidebar::End
+
+        // SearchComponent::Start
+        include ../components/_search-component
+
+        // SearchComponent::End
 
         // Main::Start
         main

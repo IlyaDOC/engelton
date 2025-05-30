@@ -3,20 +3,21 @@
 @use "@styles/base/container" as *;
 
 .main-hero {
-    --header-height: 69px;
-
     height: 698px;
     position: relative;
     color: $white;
-    margin-top: calc(var(--header-height) * -1);
 
     @include breakpoint(md) {
         height: 770px;
-        --header-height: 92px;
+    }
+    @include breakpoint(lg) {
     }
 
     @include breakpoint(1400px) {
-        height: calc(100vh - var(--header-height));
+        height: 100vh;
+    }
+
+    @include breakpoint(xl) {
     }
 
     &__inner {
@@ -34,7 +35,7 @@
         }
 
         @include breakpoint(1400px) {
-            padding-top: calc(100vh + var(--header-height) - 344px - 223px);
+            padding-top: calc(100vh - 344px - 223px);
         }
 
         .main-hero__description {

@@ -1,0 +1,57 @@
+.product-card
+    .product-card__top
+        - var numberFrom0to2 = Math.floor(Math.random() * 3);
+        - var tagType;
+        - var tagText;
+        if (numberFrom0to2 === 0)
+            - tagType = "promo";
+            - tagText = "Акция";
+        else if (numberFrom0to2 === 1)
+            - tagType = "sale";
+            - tagText = "Sale%"
+        else
+            - tagType = "new";
+            - tagText = "New"
+
+        .product-card__tag(class=`tag__${tagType}`)= tagText
+        - var  isInFavourite = Math.floor(Math.random() * 2);
+        .product-card__favourite(class=`${isInFavourite === 1 ? "in-favourite" : ""}`)
+            +svg("icon_heart")
+            +svg("icon_favourite-active")
+
+    .product-card__images
+        .swiper
+            .swiper-wrapper
+                - var slidesCount = Math.floor(Math.random() * 4) + 2;
+                - var productCardImage = Math.floor(Math.random() * 8);
+                while slidesCount > 0
+                    .swiper-slide
+                        .product-card__image
+                            +img(`product-card-image-${productCardImage + 1}.jpg`)
+                    - slidesCount--;
+
+
+            .swiper-pagination
+
+    - var productTitle;
+    if (numberFrom0to2 === 0)
+        - productTitle = "Название товара"
+    else if (numberFrom0to2 === 1)
+        - productTitle = "Название товара в карточке"
+    else
+        - productTitle = "Название товара в карточке в одну-две строки текста"
+
+    .product-card__title= productTitle
+
+    .product-card__additional
+        .product-card__price
+            .price__old
+            .price__discount
+            .price__new
+        - var isInCart = Math.floor(Math.random() * 2)
+        a(href="javascript:void(0)" class=`${isInCart ? "in-cart" : ""}`).btn.btn--brown
+            +svg("icon_cart")
+            +svg("icon_check")
+
+
+

@@ -1,7 +1,21 @@
 extends ../layout/layout
 
 block title
-    - var title = 'Главная'
+    - var title = "Главная"
     - var page = "page-main"
 block main
     include ../components/sections/_hero-section
+    section.main-popular
+        .container
+            .main-popular__inner
+                .section-top
+                    .section-title Популярные товары
+                    +navButtons("light")
+
+                .main-popular__items
+                    - var n = 2;
+                    while n > 0
+                        include ../components/_product-card
+                        - n--;
+
+

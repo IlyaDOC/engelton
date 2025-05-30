@@ -2,9 +2,10 @@
 @use "../base/variables" as *;
 
 .header {
-    position: sticky;
+    position: fixed;
     left: 0;
     top: 0;
+    width: 100%;
     background: transparent;
     z-index: 100;
     border-bottom: 1px solid $white-20;
@@ -21,6 +22,10 @@
         grid-template-columns: repeat(3, fit-content(100%)) 1fr repeat(2, fit-content(100%));
     }
 
+    @include breakpoint(hd) {
+        padding: 32px;
+    }
+
     &__inner {
     }
 }
@@ -33,6 +38,7 @@
         width: 36px;
         height: 36px;
         @include flexCenterCenter;
+        transition: $transition;
 
         @include breakpoint(md) {
             margin-right: 32px;
@@ -45,10 +51,28 @@
                 .icon__top {
                     background: $white;
                 }
+
                 .icon__bottom {
                     background: $white;
                     width: 36px;
                 }
+            }
+        }
+
+        @include breakpoint(hd) {
+            @include flexAlignCenter;
+            gap: 12px;
+            width: unset;
+            height: unset;
+            padding: 16px 24px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            margin-right: 80px;
+        }
+
+        &:hover {
+            @include breakpoint(hd) {
+                border: 1px solid $white-20;
             }
         }
     }
@@ -86,6 +110,12 @@
 
     &-text {
         display: none;
+
+        @include breakpoint(hd) {
+            display: block;
+            color: $white;
+            @include uppercase-16;
+        }
     }
 
     &-nav {
@@ -114,6 +144,10 @@
             margin-right: 24px;
         }
 
+        @include breakpoint(hd) {
+            margin-right: 32px;
+        }
+
         svg {
             @include breakpoint(lg) {
                 width: 24px;
@@ -139,6 +173,11 @@
             width: 205px;
             height: 46px;
         }
+
+        @include breakpoint(hd) {
+            width: 249px;
+            height: 56px;
+        }
     }
 }
 
@@ -147,16 +186,69 @@
     transform: translateY(-9999px);
 
     @include breakpoint(lg) {
-        position: static;
+        position: relative;
         transform: none;
         cursor: pointer;
         justify-self: flex-end;
+    }
+
+    &:before {
+        @include breakpoint(lg) {
+            @include hoverOverlay;
+        }
+    }
+
+    &:hover {
+        @include breakpoint(lg) {
+            z-index: 101;
+        }
+
+        &:after {
+            @include breakpoint(lg) {
+                content: "";
+                width: 100%;
+                height: 35px;
+                position: absolute;
+                left: 0;
+                top: 100%;
+                cursor: default;
+            }
+        }
+
+        &:before {
+            @include breakpoint(lg) {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        .header__buyer-items {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .header__buyer-trigger {
+            @include breakpoint(lg) {
+                border: 1px solid $white-20;
+            }
+        }
+
+        svg {
+            @include breakpoint(lg) {
+                transform: rotate(180deg);
+            }
+        }
     }
 
     &-trigger {
         @include breakpoint(lg) {
             @include flexAlignCenter;
             gap: 12px;
+            padding: 16px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            transition: $transition;
         }
 
         svg {
@@ -164,6 +256,7 @@
                 width: 24px;
                 height: 24px;
                 fill: $white;
+                transition: $transition;
             }
         }
     }
@@ -174,6 +267,42 @@
             color: $white;
         }
     }
+
+    &-items {
+        position: fixed;
+        transform: translate(-9999px);
+        @include breakpoint(lg) {
+            position: absolute;
+            left: 0;
+            top: calc(100% + 32px);
+            transform: none;
+            border-radius: 4px;
+            border: 1px solid #d8d8df;
+            background: $white;
+            box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.2);
+            padding: 24px 16px;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: $transition;
+        }
+
+        .header__buyer-item {
+            list-style: none;
+            padding: 16px;
+            width: 372px;
+            transition: $transition;
+
+            &:hover {
+                background: $light;
+            }
+
+            a {
+                color: $black;
+                font: $font-body-16;
+            }
+        }
+    }
 }
 
 .header__contacts {
@@ -181,6 +310,145 @@
 
     @include breakpoint(lg) {
         display: grid;
+        align-items: center;
+        padding: 0 16px;
+        margin: 0 16px;
+        position: relative;
+    }
+
+    @include breakpoint(hd) {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(4, fit-content(100%));
+        padding: 0 24px;
+        margin: 0 24px;
+    }
+
+    &:before,
+    &:after {
+        @include breakpoint(lg) {
+            content: "";
+            height: 32px;
+            width: 2px;
+            background: $white-50;
+            position: absolute;
+        }
+
+        @include breakpoint(hd) {
+            height: 24px;
+        }
+    }
+
+    &:before {
+        @include breakpoint(lg) {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    &:after {
+        @include breakpoint(lg) {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+
+    .header__mail {
+        @include breakpoint(lg) {
+            color: $white-70;
+            font: $body-description;
+        }
+
+        @include breakpoint(hd) {
+            font: $font-body-16;
+            color: $white;
+            padding-right: 24px;
+            position: relative;
+            margin-right: 28px;
+        }
+
+        &:after {
+            @include breakpoint(hd) {
+                content: "";
+                height: 24px;
+                width: 2px;
+                background: $white-50;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    .header__phone {
+        @include breakpoint(lg) {
+            grid-row: 2 / 3;
+            @include uppercase-16;
+            color: $white;
+            margin-right: 8px;
+        }
+
+        @include breakpoint(hd) {
+            grid-row: unset;
+        }
+    }
+
+    .header__whatsapp {
+        @include breakpoint(lg) {
+            grid-row: 2 / 3;
+            padding: 0 6px;
+        }
+
+        @include breakpoint(hd) {
+            grid-row: unset;
+        }
+
+        &:hover {
+            svg {
+                fill: $white-50;
+            }
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+            fill: $white;
+            transition: $transition;
+        }
+    }
+
+    .header__telegram {
+        @include breakpoint(lg) {
+            grid-row: 2 / 3;
+            padding: 0 6px;
+        }
+
+        @include breakpoint(hd) {
+            grid-row: unset;
+        }
+
+        &:hover {
+            svg path {
+                &:nth-child(1) {
+                    stroke: $white-50;
+                }
+
+                &:nth-child(2) {
+                    fill: $white-50;
+                }
+            }
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+
+            path {
+                transition: $transition;
+            }
+        }
     }
 }
 
@@ -191,11 +459,19 @@
 
     &-item {
         padding: 6px;
+        @include flexCenterCenter;
+
+        &:hover {
+            svg {
+                fill: $white-50;
+            }
+        }
 
         svg {
             width: 20px;
             height: 20px;
             fill: $white;
+            transition: $transition;
 
             @include breakpoint(md) {
                 width: 24px;

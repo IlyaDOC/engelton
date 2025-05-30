@@ -1,0 +1,45 @@
+@use "@styles/base/mixins" as *;
+@use "@styles/base/variables" as *;
+
+.search-component {
+    position: fixed;
+    z-index: 110;
+    width: 326px;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 16px;
+    background: $white;
+    display: grid;
+    gap: 16px;
+    transition: $transition;
+
+    &.showed {
+        top: 105px;
+    }
+
+    form {
+        display: grid;
+        gap: 16px;
+        input {
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+        }
+    }
+
+    &__close {
+        width: 48px;
+        height: 48px;
+        @include flexCenterCenter;
+        justify-self: center;
+
+        svg {
+            fill: $black;
+            width: 24px;
+            height: 24px;
+        }
+    }
+}
